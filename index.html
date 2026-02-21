@@ -317,7 +317,7 @@
         <h2 class="section-title">Kenapa Memilih <span>Kami?</span></h2>
         <div class="about-container">
             <div class="about-img">
-                <img src="IMG-2024-WA0019.jpg" alt="Chef Memasak">
+                <img src="C" alt="Chef Memasak">
             </div>
             <div class="about-text">
                 <h3>Chicken 999 Pertama kali berdiri di Desa Sepunggur pada tahun 2019. Sejak itu Nama warung ini bukanlah Chicken 999 yakni warung SULAIMAN. Sekarang warung Chicken 999 sudah berganti tempat di jln.brigjen H.hasan basri KOTA Pagatan</h3></h3>          </div>
@@ -402,16 +402,22 @@
     <!-- JavaScript -->
     <script>
         // Fungsi untuk tombol beli
+        var nomorWhatsApp ="628565013598";
         function beliProduk(namaProduk) {
-            alert("Terima kasih sudah berlangganan" + namaProduk);
+          // membuat pesan otomatis
+          var pesan ="Hallo Chicken 999,saya mau pesan " + namaProduk;
+           //mengubah spasi dalam pesan menjadi %20 untuk URL
+           var pesanEncoded   = encodeURIComponent(pesan);
+           //membuka WhatsApp
+           window.open("https://wa.me" + nomorWhatsApp + "?text=" + pesanEncoded, "_blank")
         }
 
-        // Smooth scrolling untuk link navigasi
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Smooth scrolling (biarkan tetap seperti ini)
+           document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
                 });
             });
         });
