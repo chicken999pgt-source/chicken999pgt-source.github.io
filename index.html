@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayam Chicken 999</title>
+    <!-- Link Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS (Style) --- */
+        :root {
+            --primary-color: #ff6347; /* Tomato Red */
+            --secondary-color: #ffa500; /* Orange */
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --text-color: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--dark-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-order {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #e5533d;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513639776629-7b61b0ca496c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* About Section */
+        .section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .about-img, .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Menu Section */
+        .menu {
+            background-color: var(--light-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* --- PERBAIKAN GAMBAR UTUH --- */
+        .menu-card-img-container {
+            width: 100%;
+            height: 250px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .menu-card-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Gambar tidak terpotong */
+        }
+        /* -------------------------------- */
+
+        .menu-info {
+            padding: 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-size: 1.3rem;
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .menu-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .btn-beli {
+            display: inline-block;
+            padding: 0.7rem 2rem;
+            border: 2px solid var(--primary-color);
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: auto;
+        }
+
+        .btn-beli:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .navbar {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Ayam<span>Crispy</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+        <a href="#menu" class="btn-order">Pesan Sekarang</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>CHICKEN<br>999</h1>
+        <p>Renyah di luar, juicy di dalam. Bumbu rahasia tradisional yang membuat ketagihan.</p>
+        <a href="#menu" class="btn-order" style="font-size: 1.2rem; padding: 0.8rem 2rem;">Lihat Menu</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">Kenapa Memilih <span>Kami?</span></h2>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="Chicken" alt="Chef Memasak">
+            </div>
+            <div class="about-text">
+                <h3>Chicken 999 Pertama kali berdiri di Desa Sepunggur pada tahun 2019. Sejak itu Nama warung ini bukanlah Chicken 999 yakni warung SULAIMAN. Sekarang warung Chicken 999 sudah berganti tempat di jln.brigjen H.hasan basri KOTA Pagatan</h3></h3>          </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu">
+        <h2 class="section-title">Menu <span>Andalan</span></h2>
+        <div class="menu-grid">
+            
+            <!-- Produk 1 -->
+            <div class="menu-card">
+                <div class="menu-card-img-container">
+                    <img src="IMG-20260205-WA0002.jpg" alt="Ayam Seikungan">
+                </div>
+                <div class="menu-info">
+                    <h3>Ayam Seikungan</h3>
+                    <span class="price">Rp 25.000</span>
+                    <p>Ayam Seikungan dengan bentuk yang lebih besar bisa untuk dimakan rame-rame.</p>
+                    <button class="btn-beli" onclick="beliProduk('Ayam Seikungan')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="menu-card">
+                <div class="menu-card-img-container">
+                    <img src="IMG_20250308_124706.jpg" alt="Ayam Spicy">
+                </div>
+                <div class="menu-info">
+                    <h3>Chicken Jumbo</h3></h3>
+                    <span class="price">Rp 28.000</span>
+                    <p>Chicken yang sedikit besar membuat perut kenyang seharian.</p>
+                    <button class="btn-beli" onclick="beliProduk('Ayam Spicy')">Beli Sekarang</button>
+                </div>
+            </div>
+            <!-- Produk 5 -->
+            <div class="menu-card">
+                <div class="menu-card-img-container">
+                    <img src="IMG-20250925-WA00123.jpg" alt="Nasi Box Ayam">
+                </div>
+                <div class="menu-info">
+                    <h3>Chicken Crispy</h3>
+                    <span class="price">Rp.9.000-20.000</span>
+                    <p>pas harganya, istimewa rasanya.</p>
+                    <button class="btn-beli" onclick="beliProduk('Nasi Box')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Produk 6 -->
+            <div class="menu-card">
+                <div class="menu-card-img-container">
+                    <img src="IMG-20260214-WA0018.jpg" alt="Usus Crispy">
+                </div>
+                <div class="menu-info">
+                    <h3>Usus Crispy</h3>
+                    <span class="price">Rp 15.000</span>
+                    <p>Usus renyah dengan bumbu yang spesial.</p>
+                    <button class="btn-beli" onclick="beliProduk('Usus Crispy')">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="logo" style="color: #fff;">
+          Chicken 999</div>
+        <p>Jln. Brigjen H.hasan basri, pagatan, tanah bumbu</p>
+        <p>Telp: 0812-3456-7890</p>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+        <p>&copy; 2023 Chicken Crispy.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Fungsi untuk tombol beli
+        function beliProduk(namaProduk) {
+            alert("Terima kasih sudah berlangganan" + namaProduk);
+        }
+
+        // Smooth scrolling untuk link navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
